@@ -6,7 +6,7 @@ import project1 from "@/assets/proj1.png"
 import project2 from "@/assets/proj6.png"
 import project3 from "@/assets/proj7.png"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
-//this is a test commit
+
 const projects = [
     {
         id: 1,
