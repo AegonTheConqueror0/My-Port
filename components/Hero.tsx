@@ -1,6 +1,6 @@
 "use client"
 
-import React, { use, useEffect } from "react";
+import React, { useEffect } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import {
   useMotionTemplate,
