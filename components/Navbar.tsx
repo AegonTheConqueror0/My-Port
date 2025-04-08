@@ -29,10 +29,6 @@ export const Navbar = () => {
         setNav(!nav)
     }
 
-    const closeNav = () => {
-        setNav(false)
-    }
-
     return (
         <div className={`z-50 fixed flex justify-center w-full text-white font-bold transition-all duration-500 ease-in-out transform ${scrolled ? 'top-0 scale-95' : 'top-16 scale-100'}`}>
 
@@ -71,8 +67,6 @@ export const Navbar = () => {
               ))}
                 </ul>
              </div>
-
-
         </div>
     )
 }
