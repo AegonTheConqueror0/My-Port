@@ -7,6 +7,7 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 const navLinks = [
     { title: "About", path: "#about" },
     { title: "Portfolio", path: "#portfolio" },
+    { title: "Designs", path: "#designs" },  // Add this line
     { title: "Stack", path: "#stack" },
     { title: "Contact", path: "#contact" },
 ]
@@ -32,21 +33,18 @@ export const Navbar = () => {
     return (
         <div className={`z-50 fixed flex justify-center w-full text-white font-bold transition-all duration-500 ease-in-out transform ${scrolled ? 'top-0 scale-95' : 'top-16 scale-100'}`}>
 
-             <div className={`border border-white/20 backdrop-blur 3xl rounded-3xl hidden md:flex items-center justify-center p-2 max-w-[400px] mx-auto transition-all duration-500 ease-in-out transform ${scrolled ? 'mt-2 scale-[0.98]' : 'mt-10 scale-100'}`}>
+             <div className={`border border-white/20 backdrop-blur 3xl rounded-3xl hidden md:flex items-center justify-center p-1 max-w-[500px] mx-auto transition-all duration-500 ease-in-out transform ${scrolled ? 'mt-2 scale-[0.98]' : 'mt-10 scale-100'}`}>
              
-             <ul className="flex flex-row p-2 space-x-8">
+             <ul className="flex flex-row p-1 space-x-6">
               {navLinks.map((link, index) => (
                 <li key={index}>
                     <Link href={link.path} className="transform hover:text-white/50
-                    transition-all duration-300 ease-in-out">
+                    transition-all duration-300 ease-in-out text-sm">
                         {link.title}
-
                     </Link>
                 </li>
               ))}
-                
                 </ul>    
-
              </div>
 
              <div onClick={toggleNav} className={`md:hidden absolute ${scrolled ? 'top-4' : 'top-20'} right-14 border rounded z-50 text-white/70 border-white/70 p-2`}>

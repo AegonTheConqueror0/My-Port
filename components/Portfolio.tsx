@@ -2,32 +2,32 @@
 
 import React, { useState, useEffect } from  "react"
 import Image from "next/image"
+import project13 from "@/assets/proj13.png"
+import project9 from "@/assets/proj9.png"
 import project1 from "@/assets/proj1.png"
-import project2 from "@/assets/proj6.png"
-import project3 from "@/assets/proj7.png"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
 
 const projects = [
     {
         id: 1,
-        year: 2024, 
-        title: 'My First Bubble Project as a Bubble Developer', 
-        description: 'A no code platform that can easily make a web system.', 
-        image: project1
+        year: 2022, 
+        title: 'Land Payment Management System Among Balai Dabawenyo, inc.', 
+        description: 'The current office records management system is outdated and inefficient, relying on manual and paper-based processes. This leads to delays in service delivery, errors, and a heavy administrative burden. To address these challenges, there is a critical need for the office to transition to modern digital solutions. By doing so, efficiency, accuracy, and security can be enhanced, reducing administrative tasks and improving client access to information. Adopting digital records management solutions is essential for improving office operations and streamlining processes.', 
+        image: project13    
     },
     {
         id: 2, 
-        year: 2024, 
-        title: 'E-commerce platform', 
-        description: 'An online platform for buying and selling products.', 
-        image: project2
+        year: 2023, 
+        title: 'DiabetiCare', 
+        description: 'a comprehensive platform or system that supports continuous monitoring, offers tailored health tips, tracks medication, and encourages healthy lifestyle habits ultimately improving the quality of life for people living with diabetes.', 
+        image: project9
     },
     {
         id: 3, 
         year: 2024, 
-        title: 'Social media analytics tool', 
-        description: 'A tool to analyze social media engagement and trends.', 
-        image: project3
+        title: 'ELMS System Powered by: Bubble.io', 
+        description: 'A no-code platform. My First ever project without using native coding.', 
+        image: project1
     },
 ];
 
@@ -40,13 +40,15 @@ export const Portfolio = () => {
      const color = useMotionValue(COLORS_TOP[0])
 
      useEffect(() => {
-         animate(color, COLORS_TOP, {
+         const animation = animate(color, COLORS_TOP, {
            ease: "easeInOut",
            duration: 10,
            repeat: Infinity,
            repeatType: "mirror"
          })
-       }, [color]) // Added color to the dependency array
+         
+         return () => animation.stop()
+       }, []) // Remove color from dependencies
 
        const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})`
 
@@ -61,7 +63,7 @@ export const Portfolio = () => {
             <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12">
 
                 <div>
-                    <h2 className="text-6xl font-bold mb-10">Selected <span className="text-purple-400">Projects</span></h2>
+                    <h2 className="text-6xl font-bold mb-10">Project <span className="text-purple-400">Portfolio</span></h2>
                     {projects.map((project) =>(
                         <div
                             key={project.id}
