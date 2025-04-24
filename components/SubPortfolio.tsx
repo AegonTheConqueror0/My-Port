@@ -8,8 +8,8 @@ import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motio
 const projects = [
     {
         id: 1,
-        year: 2024, 
-        title: 'Technofair Research Champion', 
+        year: 2025, 
+        title: 'Technofair 2025 Research Champion', 
         description: 'Diabeticare success as the champion of TechnoFair Research Development shows how student innovations can make a big difference. Holy Cross of Davao College continues to inspire excellence and youth-driven solutions.', 
         image: project4
     },
