@@ -2,8 +2,8 @@ export const Services = () => {
     const services = [
         { id: '01', title: 'Web Development', description: 'Building responsive and user-friendly websites.' },
         { id: '02', title: 'Mobile Development', description: 'Creating mobile applications for iOS and Android.' },
-        { id: '03', title: 'UI/UX Design', description: 'Designing intuitive interfaces for web and mobile applications.' },
-        { id: '04', title: 'SEO & Marketing', description: 'Optimizing websites for search engines and running marketing campaigns.' },
+        { id: '03', title: 'UI/UX & Graphics Design', description: 'Designing intuitive interfaces for web and mobile applications, along with creative graphics for branding and marketing materials.' },
+        { id: '04', title: 'Digital Marketing', description: 'Helping brands grow online through social media management, content creation, and targeted campaigns.' },
     ]
 
 
