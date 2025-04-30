@@ -7,7 +7,7 @@ import { TbBrandNextjs } from "react-icons/tb"
 
 const stackItems = [
     { id: 1, name: 'Html5', icon: SiHtml5, color: '#61DAFB' },
-    { id: 2, name: 'Adobe', icon: SiAdobe, color: '#339933' }, // Correct reference
+    { id: 2, name: 'Adobe', icon: SiAdobe, color: '#339933' }, 
     { id: 3, name: 'Javascript', icon: SiJavascript, color: '#3178C6' },
     { id: 4, name: 'Python', icon: SiPython, color: '#47A248' },
     { id: 5, name: 'Next.js', icon: TbBrandNextjs, color: '#000000' },
