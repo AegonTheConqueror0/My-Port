@@ -40,7 +40,7 @@ export const Portfolio = () => {
      const color = useMotionValue(COLORS_TOP[0])
 
      useEffect(() => {
-         const animation = animate(color, COLORS_TOP, {
+         const animation = animate(COLORS_TOP, {
            ease: "easeInOut",
            duration: 10,
            repeat: Infinity,
@@ -48,7 +48,7 @@ export const Portfolio = () => {
          })
          
          return () => animation.stop()
-       }, []) // Remove color from dependencies
+       }, []) 
 
        const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})`
 

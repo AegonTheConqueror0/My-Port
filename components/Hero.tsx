@@ -10,9 +10,6 @@ import {
 } from "framer-motion";
 import Image from 'next/image';
 import profilepic from "../assets/profilepic.png"
-import object1 from "../assets/obj1.png"
-import object2 from "../assets/vscode.png"
-import object3 from "../assets/Figma.png"
 
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
