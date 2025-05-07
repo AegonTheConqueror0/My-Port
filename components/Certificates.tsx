@@ -21,7 +21,6 @@ const certificates = [
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
 
 export const Certificates = () => {
-    const [selectedCategory, setSelectedCategory] = useState("All")
     const [selectedCert, setSelectedCert] = useState(certificates[0])
     const color = useMotionValue(COLORS_TOP[0])
 

@@ -10,23 +10,23 @@ import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motio
 const designs = [
     {
         id: 1,
-        year: 2024, 
-        title: 'UI/UX ELMS Design', 
-        description: 'Modern and intuitive user interface designs created with Figma, focusing on user experience and accessibility.', 
+        year: 2024,
+        title: 'UI/UX ELMS Design',
+        description: 'Modern and intuitive user interface designs created with Figma, focusing on user experience and accessibility.',
         image: design1
     },
     {
-        id: 2, 
-        year: 2024, 
-        title: 'Graphics Designs Collection', 
-        description: 'A collection of creative graphic designs showcasing brand identities, social media content, and marketing materials created using Adobe Creative Suite.', 
+        id: 2,
+        year: 2024,
+        title: 'Graphics Designs Collection',
+        description: 'A collection of creative graphic designs showcasing brand identities, social media content, and marketing materials created using Adobe Creative Suite.',
         image: design2
     },
     {
-        id: 3, 
-        year: 2024, 
-        title: 'Graphics Designs T-shirt Collection', 
-        description: 'Custom t-shirt designs featuring unique illustrations, typography, and patterns, designed for both personal and commercial use.', 
+        id: 3,
+        year: 2024,
+        title: 'Graphics Designs T-shirt Collection',
+        description: 'Custom t-shirt designs featuring unique illustrations, typography, and patterns, designed for both personal and commercial use.',
         image: design3
     },
 ];
@@ -44,18 +44,18 @@ export const Designs = () => {
             repeat: Infinity,
             repeatType: "mirror"
         })
-        
+
         return () => animation.stop()
-    }, [])
+    }, [color]) // Added 'color' to the dependency array
 
     const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})`
 
     return (
-        <motion.section 
+        <motion.section
             style={{
                 backgroundImage
             }}
-            id="designs" 
+            id="designs"
             className="py-32 text-white"  // Removed min-h-screen to better fit with other sections
         >
             <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12">
@@ -68,7 +68,7 @@ export const Designs = () => {
                             className="cursor-pointer mb-8 group"
                         >
                             <p className="text-gray-400 text lg mb-2">{design.year}</p>
-                            <h3 className={`text-3xl font-semibold group-hover:text-purple-400 transition-colors 
+                            <h3 className={`text-3xl font-semibold group-hover:text-purple-400 transition-colors
                                 ${selectedDesign.id === design.id ? 'text-gray-200' : ''} duration-300`}>
                                 {design.title}
                             </h3>
@@ -83,13 +83,13 @@ export const Designs = () => {
                         </div>
                     ))}
                 </div>
-                
+
                 <Image
                     src={selectedDesign.image.src}
                     alt={selectedDesign.title}
                     className="rounded-xl shadow-lg transition-opacity duration-500 ease-in-out"
                     width={800}
-                    height={450}    
+                    height={450}
                 />
             </div>
         </motion.section>
