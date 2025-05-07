@@ -11,6 +11,8 @@ import {
 import Image from 'next/image';
 import profilepic from "../assets/profilepic.png"
 import object1 from "../assets/obj1.png"
+import object2 from "../assets/vscode.png"
+import object3 from "../assets/Figma.png"
 
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
@@ -53,24 +55,7 @@ export const Hero = () => {
           width={250}
         />
           <div className="flex bg-white/10 shadow-xl p-3 rounded-3xl justify-center items-center space-x-2 mb-4">
-          <Image 
-            src={object1}
-            alt="object"
-            width={30}
-            className="rounded-2xl mx-auto"
-          />
-          <Image 
-            src={object1}
-            alt="object"
-            width={30}
-            className="rounded-2xl mx-auto"
-          />
-          <Image 
-            src={object1}
-            alt="object"
-            width={30}
-            className="rounded-2xl mx-auto"
-          />
+          
                 <p className="font-medium">Edgardo, Jr. B. Rojas</p>
             </div>
 

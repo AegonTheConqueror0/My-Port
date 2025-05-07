@@ -48,27 +48,29 @@ export const SubPortfolio = () => {
                 backgroundImage
             }}
             id="sub-portfolio"
-            className="py-32 text-white min-h-screen" // Added min-h-screen for visibility
+            className="py-20 md:py-32 text-white"
         >
-            <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12">
+            <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
-                    <h2 className="text-6xl font-bold mb-10"><span className="text-purple-400">Achievements</span></h2>
-                    {projects.map((project) =>(
+                    <h2 className="text-4xl md:text-6xl font-bold mb-8 md:mb-10">
+                        <span className="text-purple-400">Achievements</span>
+                    </h2>
+                    {projects.map((project) => (
                         <div
                             key={project.id}
                             onClick={() => setSelectedProject(project)}
-                            className="cursor-pointer mb-8 group"
+                            className="cursor-pointer mb-6 md:mb-8 group"
                         >
-                            <p className="text-gray-400 text lg mb-2">{project.year}</p>
-                            <h3 className={`text-3xl font-semibold group-hover:text-purple-400 transition-colors
+                            <p className="text-gray-400 text-base md:text-lg mb-1 md:mb-2">{project.year}</p>
+                            <h3 className={`text-2xl md:text-3xl font-semibold group-hover:text-purple-400 transition-colors
                                 ${selectedProject.id === project.id ? 'text-gray-200' : ''} duration-300`}>
                                 {project.title}
                             </h3>
                             {selectedProject.id === project.id && (
-                                <div className="border-b-2 border-purple-200 my-4"></div>
+                                <div className="border-b-2 border-purple-200 my-2 md:my-4"></div>
                             )}
                             {selectedProject.id === project.id && (
-                                <p className="text-gray-400 transition-all duration-500 ease-in-out">
+                                <p className="text-gray-400 transition-all duration-500 ease-in-out text-sm md:text-base">
                                     {project.description}
                                 </p>
                             )}
@@ -76,13 +78,16 @@ export const SubPortfolio = () => {
                     ))}
                 </div>
 
-                <Image
-                    src={selectedProject.image.src}
-                    alt={selectedProject.title}
-                    className="rounded-xl shadow-lg transition-opacity duration-500 ease-in-out"
-                    width={800}
-                    height={450}
-                />
+                <div className="flex items-center justify-center">
+                    <Image
+                        src={selectedProject.image.src}
+                        alt={selectedProject.title}
+                        className="rounded-xl shadow-lg transition-opacity duration-500 ease-in-out w-full max-w-[400px] md:max-w-[600px] lg:max-w-[800px] h-auto"
+                        width={800}
+                        height={450}
+                        priority
+                    />
+                </div>
             </div>
         </motion.section>
     )
