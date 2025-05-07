@@ -3,15 +3,23 @@
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import project4 from "@/assets/diabeticare.png"
+import project3 from "@/assets/conversasione.png"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
 
 const projects = [
     {
         id: 1,
-        year: 2025, 
-        title: 'Technofair 2025 Research Champion', 
-        description: 'Diabeticare success as the champion of TechnoFair Research Development shows how student innovations can make a big difference. Holy Cross of Davao College continues to inspire excellence and youth-driven solutions.', 
+        year: 2025,
+        title: 'Technofair 2025 Research Champion',
+        description: 'Diabeticare success as the champion of TechnoFair Research Development shows how student innovations can make a big difference. Holy Cross of Davao College continues to inspire excellence and youth-driven solutions.',
         image: project4
+    },
+    {
+        id: 2,
+        year: 2025,
+        title: 'Joint Research Conference Best Presenter Awardee',
+        description: 'Joint research conference of the College of Maritime Education, College of Criminal Justice Education, and College of Engineering and Technology.',
+        image: project3
     },
 ];
 
@@ -28,18 +36,18 @@ export const SubPortfolio = () => {
             repeat: Infinity,
             repeatType: "mirror"
         })
-        
+
         return () => animation.stop()
-    }, [])
+    }, [color])
 
     const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})`
 
     return (
-        <motion.section 
+        <motion.section
             style={{
                 backgroundImage
             }}
-            id="sub-portfolio" 
+            id="sub-portfolio"
             className="py-32 text-white min-h-screen" // Added min-h-screen for visibility
         >
             <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12">
@@ -52,7 +60,7 @@ export const SubPortfolio = () => {
                             className="cursor-pointer mb-8 group"
                         >
                             <p className="text-gray-400 text lg mb-2">{project.year}</p>
-                            <h3 className={`text-3xl font-semibold group-hover:text-purple-400 transition-colors 
+                            <h3 className={`text-3xl font-semibold group-hover:text-purple-400 transition-colors
                                 ${selectedProject.id === project.id ? 'text-gray-200' : ''} duration-300`}>
                                 {project.title}
                             </h3>
@@ -67,13 +75,13 @@ export const SubPortfolio = () => {
                         </div>
                     ))}
                 </div>
-                
+
                 <Image
                     src={selectedProject.image.src}
                     alt={selectedProject.title}
                     className="rounded-xl shadow-lg transition-opacity duration-500 ease-in-out"
                     width={800}
-                    height={450}    
+                    height={450}
                 />
             </div>
         </motion.section>

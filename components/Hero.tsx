@@ -42,9 +42,9 @@ export const Hero = () => {
         <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">
         open for work
         </span>
-        <h1 className="text-white/40 text-5xl md:text-7xl font-black">Hi, I am</h1>
-        <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text font-black leading-tight
-            text-transparent text-5xl md:text-7xl">
+        <h1 className="text-white/40 text-5xl md:text-2xl font-black">Hi, I am</h1>
+        <h1 className="max-w-1xl bg-gradient-to-br from-white to-gray-400 bg-clip-text font-black leading-tight
+            text-transparent text-5xl md:text-1xl">
               Ed
             </h1>
         <Image 

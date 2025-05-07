@@ -5,12 +5,12 @@ import React, { useState, useEffect } from 'react'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 
 const navLinks = [
-  { title: "About", path: "#about" },
   { title: "Stack", path: "#stack" },
+  { title: "Certificates", path: "#certificates" },
   { title: "Portfolio", path: "#portfolio" },
   { title: "Achievements", path: "#sub-portfolio" },
-  { title: "Certificates", path: "#certificates" },
   { title: "Designs", path: "#designs" },
+  { title: "About", path: "#about" },
   { title: "Services", path: "#services" },
   { title: "Contact", path: "#contact" },
 ]
