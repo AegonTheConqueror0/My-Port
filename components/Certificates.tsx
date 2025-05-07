@@ -68,12 +68,12 @@ export const Certificates = () => {
         <motion.section
             style={{ backgroundImage }}
             id="certificates"
-            className="py-32 text-white overflow-y-hidden" // Added overflow-y-hidden
+            className="py-32 text-white overflow-x-hidden"
         >
             <div className="max-w-[1200px] mx-auto px-4">
                 <h2 className="text-6xl font-bold mb-10">My <span className="text-purple-400">Certificates</span></h2>
 
-                <div className="flex flex-row gap-4 overflow-x-auto md:overflow-x-hidden pb-4">
+                <div className="flex flex-row gap-4 pb-4 max-h-[400px] md:overflow-x-hidden overflow-x-auto">
                     {certificates.map((cert) => (
                         <motion.div
                             key={cert.id}
