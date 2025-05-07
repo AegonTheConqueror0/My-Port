@@ -8,6 +8,7 @@ import { Portfolio } from "@/components/Portfolio";
 import { Services } from "@/components/Services";
 import { Stack } from "@/components/Stack";
 import { SubPortfolio } from '@/components/SubPortfolio';
+import { Certificates } from "@/components/Certificates";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Navbar/>
         <Hero/>
         <Stack/>
+        <Certificates/>
         <Portfolio/>
         <SubPortfolio/>
         <Designs/>

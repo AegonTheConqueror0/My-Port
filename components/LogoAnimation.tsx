@@ -46,12 +46,12 @@ export const LogoAnimation = () => {
     console.log("LogoAnimation component rendered");
 
     return (
-        <div className="py-8 bg-purple-200/10 glass opacity-80">
+        <div className="py-6 bg-purple-200/10 glass opacity-80">
             <div className="container mx-auto">
                 <div className="overflow-hidden w-full
                         [mask-image:linear-gradient(to_right,_transparent,_black_25%,_black_75%,_transparent)]">
                 <motion.div
-                    className="flex gap-14 flex-none pr-14"
+                    className="flex gap-10 flex-none pr-10"
                     style={{ width: '200%' }}
                     animate={{
                         translateX: '-100%',
@@ -69,8 +69,8 @@ export const LogoAnimation = () => {
                         key={index}
                         src={image.src}
                         alt={image.alt}
-                        height={30}
-                        width={30}
+                        height={28}
+                        width={28}
                         style={{ objectFit: "contain" }}
                     />
                 ))}

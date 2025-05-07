@@ -8,7 +8,7 @@ export const Services = () => {
 
 
         return (
-            <section className="text-white py-20">
+            <section className="text-white py-20" id="services">
                 <div className="container mx-auto flex flex-col md:flex-row">
 
                     <div className=" md:w-1/4 pr-8 mb-12 md:mb-0">
