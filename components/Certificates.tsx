@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Image from "next/image"
 import certificate1 from "@/assets/conversasione.png" // Import the image properly
-import { motion, AnimatePresence, useMotionValue, useMotionTemplate, animate } from "framer-motion"
+import { motion, useMotionValue, useMotionTemplate } from "framer-motion"
 
 const certificates = [
     {

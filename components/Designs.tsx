@@ -15,7 +15,7 @@ const designs = [
         description: 'Modern and intuitive user interface designs created with Figma, focusing on user experience and accessibility.', 
         image: design1
     },
-    {
+    {c
         id: 2, 
         year: 2024, 
         title: 'Graphics Designs Collection', 
