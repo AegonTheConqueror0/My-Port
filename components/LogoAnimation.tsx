@@ -100,10 +100,9 @@ export const LogoAnimation = () => {
     console.log("LogoAnimation component rendered");
 
     return (
-        <div className="py-6 bg-purple-200/10 glass opacity-80">
+        <div className="py-6 bg-purple-200/10 opacity-80"> {/* Removed the 'glass' class */}
             <div className="container mx-auto">
-                <div className="overflow-hidden w-full
-                        [mask-image:linear-gradient(to_right,_transparent,_black_25%,_black_75%,_transparent)]">
+                <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,_transparent,_black_25%,_black_75%,_transparent)]">
                 <motion.div
                     className="flex gap-10 flex-none pr-10"
                     style={{ width: '200%' }}
@@ -111,7 +110,7 @@ export const LogoAnimation = () => {
                         translateX: '-100%',
                     }}
                     transition={{
-                        duration: 35,
+                        duration: 80,
                         repeat: Infinity,
                         ease: "linear",
                         repeatType: "loop",
@@ -127,10 +126,10 @@ export const LogoAnimation = () => {
                         width={28}
                         style={{ objectFit: "contain" }}
                     />
-                ))}
-            </motion.div>            
+                    ))}
+        </motion.div>
                 </div>
             </div>
-        </div>  
+        </div>
     );
 };
