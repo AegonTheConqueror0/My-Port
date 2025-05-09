@@ -73,7 +73,7 @@ export const Certificates = () => {
             <div className="max-w-[1200px] mx-auto px-4">
                 <h2 className="text-6xl font-bold mb-10">My <span className="text-purple-400">Certificates</span></h2>
 
-                <div className="flex flex-row gap-4 pb-4 max-h-[400px] md:overflow-x-hidden overflow-x-auto">
+                <div className="flex flex-row gap-4 pb-4 max-h-[400px] md:overflow-x-hidden">
                     {certificates.map((cert) => (
                         <motion.div
                             key={cert.id}
