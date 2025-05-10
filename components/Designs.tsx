@@ -34,7 +34,7 @@ const designs = [
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
 
 export const Designs = () => {
-    const [selectedDesign, setSelectedDesign] = useState(designs[0])
+    const [selectedDesign, setSelectedDesign] = useState<number | null>(null)
     const color = useMotionValue(COLORS_TOP[0])
 
     useEffect(() => {
@@ -50,6 +50,10 @@ export const Designs = () => {
 
     const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})`
 
+    const handleDesignClick = (id: number) => {
+        setSelectedDesign(selectedDesign === id ? null : id)
+    }
+
     return (
         <motion.section
             style={{ backgroundImage }}
@@ -63,16 +67,16 @@ export const Designs = () => {
                     {designs.map((design) => (
                         <div key={design.id} className="space-y-4">
                             <div
-                                onClick={() => setSelectedDesign(design)}
+                                onClick={() => handleDesignClick(design.id)}
                                 className="cursor-pointer group lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start"
                             >
                                 <div className="lg:order-1">
                                     <p className="text-gray-400 text-base lg:text-lg mb-1">{design.year}</p>
                                     <h3 className={`text-2xl lg:text-3xl font-semibold group-hover:text-purple-400 transition-colors
-                                        ${selectedDesign.id === design.id ? 'text-gray-200' : ''} duration-300`}>
+                                        ${selectedDesign === design.id ? 'text-gray-200' : ''} duration-300`}>
                                         {design.title}
                                     </h3>
-                                    {selectedDesign.id === design.id && (
+                                    {selectedDesign === design.id && (
                                         <>
                                             <div className="border-b-2 border-purple-200 my-3"></div>
                                             <p className="text-gray-400 text-sm lg:text-base">
@@ -81,11 +85,12 @@ export const Designs = () => {
                                         </>
                                     )}
                                 </div>
-                                {selectedDesign.id === design.id && (
+                                {selectedDesign === design.id && (
                                     <motion.div 
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5 }}
+                                        exit={{ opacity: 0, y: -20 }}
+                                        transition={{ duration: 0.3 }}
                                         className="mt-4 lg:mt-0 lg:order-2 lg:sticky lg:top-24"
                                     >
                                         <Image

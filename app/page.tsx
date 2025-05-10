@@ -13,6 +13,7 @@ import { Services } from "@/components/Services"
 import { Stack } from "@/components/Stack"
 import { SubPortfolio } from '@/components/SubPortfolio'
 import { Certificates } from "@/components/Certificates"
+import { AnimatedTestimonialsDemo } from "@/components/Testimonials"
 import { motion, AnimatePresence } from "framer-motion"
 
 export default function Home() {
@@ -62,6 +63,9 @@ export default function Home() {
               </motion.div>
               <motion.div variants={itemVariants}>
                 <Hero/>
+              </motion.div>
+              <motion.div variants={itemVariants}>
+                <AnimatedTestimonialsDemo/>
               </motion.div>
               <motion.div variants={itemVariants}>
                 <Stack/>

@@ -26,7 +26,7 @@ const projects = [
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
 
 export const SubPortfolio = () => {
-    const [selectedProject, setSelectedProject] = useState(projects[0])
+    const [selectedProject, setSelectedProject] = useState<number | null>(null)
     const color = useMotionValue(COLORS_TOP[0])
 
     useEffect(() => {
@@ -41,6 +41,10 @@ export const SubPortfolio = () => {
     }, [color])
 
     const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})`
+
+    const handleProjectClick = (id: number) => {
+        setSelectedProject(selectedProject === id ? null : id)
+    }
 
     return (
         <motion.section
@@ -57,16 +61,16 @@ export const SubPortfolio = () => {
                     {projects.map((project) => (
                         <div key={project.id} className="space-y-4">
                             <div
-                                onClick={() => setSelectedProject(project)}
+                                onClick={() => handleProjectClick(project.id)}
                                 className="cursor-pointer group lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start"
                             >
                                 <div className="lg:order-1">
                                     <p className="text-gray-400 text-base lg:text-lg mb-1">{project.year}</p>
                                     <h3 className={`text-2xl lg:text-3xl font-semibold group-hover:text-purple-400 transition-colors
-                                        ${selectedProject.id === project.id ? 'text-gray-200' : ''} duration-300`}>
+                                        ${selectedProject === project.id ? 'text-gray-200' : ''} duration-300`}>
                                         {project.title}
                                     </h3>
-                                    {selectedProject.id === project.id && (
+                                    {selectedProject === project.id && (
                                         <>
                                             <div className="border-b-2 border-purple-200 my-3"></div>
                                             <p className="text-gray-400 text-sm lg:text-base">
@@ -75,11 +79,12 @@ export const SubPortfolio = () => {
                                         </>
                                     )}
                                 </div>
-                                {selectedProject.id === project.id && (
+                                {selectedProject === project.id && (
                                     <motion.div 
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5 }}
+                                        exit={{ opacity: 0, y: -20 }}
+                                        transition={{ duration: 0.3 }}
                                         className="mt-4 lg:mt-0 lg:order-2 lg:sticky lg:top-24"
                                     >
                                         <Image
