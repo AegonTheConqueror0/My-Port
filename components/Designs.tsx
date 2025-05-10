@@ -52,45 +52,56 @@ export const Designs = () => {
 
     return (
         <motion.section
-            style={{
-                backgroundImage
-            }}
+            style={{ backgroundImage }}
             id="designs"
-            className="py-32 text-white"  // Removed min-h-screen to better fit with other sections
+            className="py-32 text-white"
         >
-            <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12">
-                <div>
-                    <h2 className="text-6xl font-bold mb-10">Creative <span className="text-purple-400">Designs</span></h2>
-                    {designs.map((design) =>(
-                        <div
-                            key={design.id}
-                            onClick={() => setSelectedDesign(design)}
-                            className="cursor-pointer mb-8 group"
-                        >
-                            <p className="text-gray-400 text lg mb-2">{design.year}</p>
-                            <h3 className={`text-3xl font-semibold group-hover:text-purple-400 transition-colors
-                                ${selectedDesign.id === design.id ? 'text-gray-200' : ''} duration-300`}>
-                                {design.title}
-                            </h3>
-                            {selectedDesign.id === design.id && (
-                                <div className="border-b-2 border-purple-200 my-4"></div>
-                            )}
-                            {selectedDesign.id === design.id && (
-                                <p className="text-gray-400 transition-all duration-500 ease-in-out">
-                                    {design.description}
-                                </p>
-                            )}
+            <div className="max-w-7xl mx-auto px-4">
+                <h2 className="text-4xl lg:text-6xl font-bold mb-6 lg:mb-10">Creative <span className="text-purple-400">Designs</span></h2>
+                
+                <div className="space-y-8">
+                    {designs.map((design) => (
+                        <div key={design.id} className="space-y-4">
+                            <div
+                                onClick={() => setSelectedDesign(design)}
+                                className="cursor-pointer group lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start"
+                            >
+                                <div className="lg:order-1">
+                                    <p className="text-gray-400 text-base lg:text-lg mb-1">{design.year}</p>
+                                    <h3 className={`text-2xl lg:text-3xl font-semibold group-hover:text-purple-400 transition-colors
+                                        ${selectedDesign.id === design.id ? 'text-gray-200' : ''} duration-300`}>
+                                        {design.title}
+                                    </h3>
+                                    {selectedDesign.id === design.id && (
+                                        <>
+                                            <div className="border-b-2 border-purple-200 my-3"></div>
+                                            <p className="text-gray-400 text-sm lg:text-base">
+                                                {design.description}
+                                            </p>
+                                        </>
+                                    )}
+                                </div>
+                                {selectedDesign.id === design.id && (
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="mt-4 lg:mt-0 lg:order-2 lg:sticky lg:top-24"
+                                    >
+                                        <Image
+                                            src={design.image.src}
+                                            alt={design.title}
+                                            className="rounded-xl shadow-lg transition-all duration-500 ease-in-out w-full hover:scale-[1.02]"
+                                            width={800}
+                                            height={450}
+                                            priority
+                                        />
+                                    </motion.div>
+                                )}
+                            </div>
                         </div>
                     ))}
                 </div>
-
-                <Image
-                    src={selectedDesign.image.src}
-                    alt={selectedDesign.title}
-                    className="rounded-xl shadow-lg transition-opacity duration-500 ease-in-out"
-                    width={800}
-                    height={450}
-                />
             </div>
         </motion.section>
     )

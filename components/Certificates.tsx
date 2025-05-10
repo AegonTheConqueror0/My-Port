@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import Image from "next/image"
 import certificate1 from "@/assets/cert1.jpg"
 import certificate2 from "@/assets/cert2.jpg"
@@ -59,60 +59,90 @@ const certificates = [
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
 
 export const Certificates = () => {
-    const [selectedCert, setSelectedCert] = useState(certificates[0])
     const color = useMotionValue(COLORS_TOP[0])
-
     const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})`
 
     return (
         <motion.section
             style={{ backgroundImage }}
             id="certificates"
-            className="py-32 text-white overflow-x-hidden"
+            className="py-32 text-white"
         >
             <div className="max-w-[1200px] mx-auto px-4">
                 <h2 className="text-6xl font-bold mb-10">My <span className="text-purple-400">Certificates</span></h2>
 
-                <div className="flex flex-row gap-4 pb-4 max-h-[400px] md:overflow-x-hidden">
-                    {certificates.map((cert) => (
-                        <motion.div
-                            key={cert.id}
-                            onClick={() => setSelectedCert(cert)}
-                            className={`min-w-[220px] max-w-[220px] cursor-pointer rounded-xl p-3 backdrop-blur-sm
-                                ${selectedCert.id === cert.id ? 'bg-white/10' : 'bg-white/5'}
-                                hover:bg-white/10 transition-all duration-300`}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            whileHover={{ scale: 1.02 }}
-                        >
-                            <div className="relative aspect-[4/3] mb-2 overflow-hidden rounded-lg">
-                                <Image
-                                    src={cert.image}
-                                    alt={cert.title}
-                                    fill
-                                    className="object-cover transition-transform duration-300 hover:scale-110"
-                                />
-                            </div>
+                <div className="relative overflow-hidden">
+                    <motion.div 
+                        className="flex gap-4"
+                        animate={{
+                            x: [0, -1440],
+                        }}
+                        transition={{
+                            x: {
+                                duration: 40,
+                                repeat: Infinity,
+                                ease: "linear",
+                            },
+                        }}
+                        style={{ width: "fit-content" }}
+                    >
+                        {/* First set of certificates */}
+                        {certificates.map((cert) => (
+                            <motion.div
+                                key={cert.id}
+                                className="min-w-[280px] max-w-[280px] rounded-xl p-3 backdrop-blur-sm bg-white/10"
+                                whileHover={{ 
+                                    scale: 1.02,
+                                    animationPlayState: "paused"
+                                }}
+                            >
+                                <div className="relative aspect-[4/3] mb-2 overflow-hidden rounded-lg">
+                                    <Image
+                                        src={cert.image}
+                                        alt={cert.title}
+                                        fill
+                                        className="object-cover transition-transform duration-300 hover:scale-110"
+                                    />
+                                </div>
 
-                            <div className="space-y-1">
-                                <p className="text-purple-400 text-xs">{cert.date}</p>
-                                <h3 className="text-base font-semibold">{cert.title}</h3>
-                                <p className="text-gray-400 text-xs">{cert.issuer}</p>
-
-                                <motion.div
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{
-                                        opacity: selectedCert.id === cert.id ? 1 : 0,
-                                        height: selectedCert.id === cert.id ? "auto" : 0
-                                    }}
-                                    transition={{ duration: 0.3 }}
-                                >
+                                <div className="space-y-1">
+                                    <p className="text-purple-400 text-xs">{cert.date}</p>
+                                    <h3 className="text-base font-semibold">{cert.title}</h3>
+                                    <p className="text-gray-400 text-xs">{cert.issuer}</p>
                                     <div className="border-t border-purple-400/20 my-2"></div>
                                     <p className="text-gray-400 text-xs">{cert.description}</p>
-                                </motion.div>
-                            </div>
-                        </motion.div>
-                    ))}
+                                </div>
+                            </motion.div>
+                        ))}
+                        {/* Duplicate certificates for seamless loop */}
+                        {certificates.map((cert) => (
+                            <motion.div
+                                key={`duplicate-${cert.id}`}
+                                className="min-w-[280px] max-w-[280px] rounded-xl p-3 backdrop-blur-sm bg-white/10"
+                                whileHover={{ 
+                                    scale: 1.02,
+                                    animationPlayState: "paused"
+                                }}
+                            >
+                                <div className="relative aspect-[4/3] mb-2 overflow-hidden rounded-lg">
+                                    <Image
+                                        src={cert.image}
+                                        alt={cert.title}
+                                        fill
+                                        className="object-cover transition-transform duration-300 hover:scale-110"
+                                    />
+                                </div>
+
+                                <div className="space-y-1">
+                                    <p className="text-purple-400 text-xs">{cert.date}</p>
+                                    <h3 className="text-base font-semibold">{cert.title}</h3>
+                                    <p className="text-gray-400 text-xs">{cert.issuer}</p>
+                                    <div className="border-t border-purple-400/20 my-2"></div>
+                                    <p className="text-gray-400 text-xs">{cert.description}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
             </div>
         </motion.section>

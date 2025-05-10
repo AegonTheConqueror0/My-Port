@@ -44,49 +44,57 @@ export const SubPortfolio = () => {
 
     return (
         <motion.section
-            style={{
-                backgroundImage
-            }}
+            style={{ backgroundImage }}
             id="sub-portfolio"
-            className="py-20 md:py-32 text-white"
+            className="py-32 text-white"
         >
-            <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
-                    <h2 className="text-4xl md:text-6xl font-bold mb-8 md:mb-10">
-                        <span className="text-purple-400">Achievements</span>
-                    </h2>
+            <div className="max-w-7xl mx-auto px-4">
+                <h2 className="text-4xl lg:text-6xl font-bold mb-6 lg:mb-10">
+                    <span className="text-purple-400">Achievements</span>
+                </h2>
+                
+                <div className="space-y-8">
                     {projects.map((project) => (
-                        <div
-                            key={project.id}
-                            onClick={() => setSelectedProject(project)}
-                            className="cursor-pointer mb-6 md:mb-8 group"
-                        >
-                            <p className="text-gray-400 text-base md:text-lg mb-1 md:mb-2">{project.year}</p>
-                            <h3 className={`text-2xl md:text-3xl font-semibold group-hover:text-purple-400 transition-colors
-                                ${selectedProject.id === project.id ? 'text-gray-200' : ''} duration-300`}>
-                                {project.title}
-                            </h3>
-                            {selectedProject.id === project.id && (
-                                <div className="border-b-2 border-purple-200 my-2 md:my-4"></div>
-                            )}
-                            {selectedProject.id === project.id && (
-                                <p className="text-gray-400 transition-all duration-500 ease-in-out text-sm md:text-base">
-                                    {project.description}
-                                </p>
-                            )}
+                        <div key={project.id} className="space-y-4">
+                            <div
+                                onClick={() => setSelectedProject(project)}
+                                className="cursor-pointer group lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start"
+                            >
+                                <div className="lg:order-1">
+                                    <p className="text-gray-400 text-base lg:text-lg mb-1">{project.year}</p>
+                                    <h3 className={`text-2xl lg:text-3xl font-semibold group-hover:text-purple-400 transition-colors
+                                        ${selectedProject.id === project.id ? 'text-gray-200' : ''} duration-300`}>
+                                        {project.title}
+                                    </h3>
+                                    {selectedProject.id === project.id && (
+                                        <>
+                                            <div className="border-b-2 border-purple-200 my-3"></div>
+                                            <p className="text-gray-400 text-sm lg:text-base">
+                                                {project.description}
+                                            </p>
+                                        </>
+                                    )}
+                                </div>
+                                {selectedProject.id === project.id && (
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="mt-4 lg:mt-0 lg:order-2 lg:sticky lg:top-24"
+                                    >
+                                        <Image
+                                            src={project.image.src}
+                                            alt={project.title}
+                                            className="rounded-xl shadow-lg transition-all duration-500 ease-in-out w-full hover:scale-[1.02]"
+                                            width={800}
+                                            height={450}
+                                            priority
+                                        />
+                                    </motion.div>
+                                )}
+                            </div>
                         </div>
                     ))}
-                </div>
-
-                <div className="flex items-center justify-center">
-                    <Image
-                        src={selectedProject.image.src}
-                        alt={selectedProject.title}
-                        className="rounded-xl shadow-lg transition-opacity duration-500 ease-in-out w-full max-w-[400px] md:max-w-[600px] lg:max-w-[800px] h-auto"
-                        width={800}
-                        height={450}
-                        priority
-                    />
                 </div>
             </div>
         </motion.section>

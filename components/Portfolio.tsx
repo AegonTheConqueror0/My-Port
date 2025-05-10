@@ -53,46 +53,56 @@ export const Portfolio = () => {
 
     return (
         <motion.section
-        style={{
-            backgroundImage
-        }}
-        id="portfolio"
-        className="py-32 text-white"
-    >
-            <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12">
-
-                <div>
-                    <h2 className="text-6xl font-bold mb-10">Project <span className="text-purple-400">Portfolio</span></h2>
-                    {projects.map((project) =>(
-                        <div
-                            key={project.id}
-                            onClick={() => setSelectedProject(project)}
-                            className="cursor-pointer mb-8 group"
-                        >
-                            <p className="text-gray-400 text lg mb-2">{project.year}</p>
-                            <h3 className={`text-3xl font-semibold group-hover:text-purple-400 transition-colors
-                                ${selectedProject.id === project.id ? 'text-gray-200' : ''} duration-300`}>
-                                {project.title}
-                            </h3>
-                            {selectedProject.id === project.id && (
-                                <div className="border-b-2 border-purple-200 my-4"></div>
-                            )}
-                            {selectedProject.id === project.id && (
-                                <p className="text-gray-400 transition-all duration-500 ease-in-out">
-                                    {project.description}
-                                </p>
-                            )}
+            style={{ backgroundImage }}
+            id="portfolio"
+            className="py-32 text-white"
+        >
+            <div className="max-w-7xl mx-auto px-4">
+                <h2 className="text-4xl lg:text-6xl font-bold mb-6 lg:mb-10">Project <span className="text-purple-400">Portfolio</span></h2>
+                
+                <div className="space-y-8">
+                    {projects.map((project) => (
+                        <div key={project.id} className="space-y-4">
+                            <div
+                                onClick={() => setSelectedProject(project)}
+                                className="cursor-pointer group lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start"
+                            >
+                                <div className="lg:order-1">
+                                    <p className="text-gray-400 text-base lg:text-lg mb-1">{project.year}</p>
+                                    <h3 className={`text-2xl lg:text-3xl font-semibold group-hover:text-purple-400 transition-colors
+                                        ${selectedProject.id === project.id ? 'text-gray-200' : ''} duration-300`}>
+                                        {project.title}
+                                    </h3>
+                                    {selectedProject.id === project.id && (
+                                        <>
+                                            <div className="border-b-2 border-purple-200 my-3"></div>
+                                            <p className="text-gray-400 text-sm lg:text-base">
+                                                {project.description}
+                                            </p>
+                                        </>
+                                    )}
+                                </div>
+                                {selectedProject.id === project.id && (
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="mt-4 lg:mt-0 lg:order-2 lg:sticky lg:top-24"
+                                    >
+                                        <Image
+                                            src={project.image.src}
+                                            alt={project.title}
+                                            className="rounded-xl shadow-lg transition-all duration-500 ease-in-out w-full hover:scale-[1.02]"
+                                            width={800}
+                                            height={450}
+                                            priority
+                                        />
+                                    </motion.div>
+                                )}
+                            </div>
                         </div>
                     ))}
                 </div>
-
-                <Image
-                    src={selectedProject.image.src}
-                    alt={selectedProject.title}
-                    className="rounded-xl shadow-lg transition-opacity duration-500 ease-in-out"
-                    width={800}
-                    height={450}
-                />
             </div>
         </motion.section>
     )
