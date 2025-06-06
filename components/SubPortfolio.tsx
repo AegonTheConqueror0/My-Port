@@ -4,7 +4,11 @@ import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import project4 from "@/assets/diabeticare.png"
 import project3 from "@/assets/conversasione.png"
+import steve from "@/assets/steve.jpg"
+import clarence from "@/assets/clarence.jpg"
+import ed from "@/assets/edgardo.jpg"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
+import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
 
 const projects = [
     {
@@ -12,14 +16,42 @@ const projects = [
         year: 2025,
         title: 'Technofair 2025 Research Champion',
         description: 'Diabeticare success as the champion of TechnoFair Research Development shows how student innovations can make a big difference. Holy Cross of Davao College continues to inspire excellence and youth-driven solutions.',
-        image: project4
+        image: project4,
+        team: [
+            {
+                id: 1,
+                name: "Research Lead",
+                designation: "Project Head",
+                image: steve.src
+            },
+            {
+                id: 2,
+                name: "Research Assistant",
+                designation: "Data Analyst",
+                image: clarence.src
+            },
+            {
+                id: 3,
+                name: "Technical Writer",
+                designation: "Documentation",
+                image: ed.src
+            }
+        ]
     },
     {
         id: 2,
         year: 2025,
         title: 'Joint Research Conference Best Presenter Awardee',
         description: 'Joint research conference of the College of Maritime Education, College of Criminal Justice Education, and College of Engineering and Technology.',
-        image: project3
+        image: project3,
+        team: [
+            {
+                id: 1,
+                name: "Lead Presenter",
+                designation: "Diabeticare Representative",
+                image: ed.src
+            }
+        ]
     },
 ];
 
@@ -76,6 +108,12 @@ export const SubPortfolio = () => {
                                             <p className="text-gray-400 text-sm lg:text-base">
                                                 {project.description}
                                             </p>
+                                            <div className="mt-4">
+                                                <p className="text-purple-400 mb-2">Research Team:</p>
+                                                <div className="flex flex-row items-center gap-1">
+                                                    <AnimatedTooltip items={project.team} />
+                                                </div>
+                                            </div>
                                         </>
                                     )}
                                 </div>

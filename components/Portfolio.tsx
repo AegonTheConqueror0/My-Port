@@ -5,7 +5,11 @@ import Image from "next/image"
 import project13 from "@/assets/proj13.png"
 import project9 from "@/assets/proj9.png"
 import project1 from "@/assets/proj1.png"
+import steve from "@/assets/steve.jpg"
+import clarence from "@/assets/clarence.jpg"
+import ed from "@/assets/edgardo.jpg"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
+import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
 
 const projects = [
     {
@@ -13,22 +17,70 @@ const projects = [
         year: 2022,
         title: 'Land Payment Management System Among Balai Dabawenyo, inc.',
         description: 'The current office records management system is outdated and inefficient, relying on manual and paper-based processes. This leads to delays in service delivery, errors, and a heavy administrative burden. To address these challenges, there is a critical need for the office to transition to modern digital solutions. By doing so, efficiency, accuracy, and security can be enhanced, reducing administrative tasks and improving client access to information. Adopting digital records management solutions is essential for improving office operations and streamlining processes.',
-        image: project13
+        image: project13,
+        team: [
+            {
+                id: 1,
+                name: "Steve Francis Fullo Evangelio",
+                designation: "Lead Developer",
+                image: steve.src
+            },
+            {
+                id: 2,
+                name: "Clarence James Lorejo",
+                designation: "Backend Developer",
+                image: clarence.src
+            },
+            {
+                id: 3,
+                name: "Edgardo, Jr. B. Rojas",
+                designation: "UI/UX Specialist",
+                image: ed.src
+            }
+        ]
     },
     {
         id: 2,
         year: 2023,
         title: 'DiabetiCare',
         description: 'a comprehensive platform or system that supports continuous monitoring, offers tailored health tips, tracks medication, and encourages healthy lifestyle habits ultimately improving the quality of life for people living with diabetes.',
-        image: project9
+        image: project9,
+        team: [
+            {
+                id: 1,
+                name: "Steve Francis Fullo Evangelio",
+                designation: "Lead Developer",
+                image: steve.src
+            },
+            {
+                id: 2,
+                name: "Clarence James Lorejo",
+                designation: "Backend Developer",
+                image: clarence.src
+            },
+            {
+                id: 3,
+                name: "Edgardo, Jr. B. Rojas",
+                designation: "UI/UX Specialist",
+                image: ed.src
+            }
+        ]
     },
     {
         id: 3,
         year: 2024,
         title: 'ELMS System Powered by: Bubble.io',
         description: 'A no-code platform. My First ever project without using native coding.',
-        image: project1
-    },
+        image: project1,
+        team: [
+            {
+                id: 1,
+                name: "Edgardo, Jr. B. Rojas",
+                designation: "Bubble Developer & UI/UX Specialist",
+                image: ed.src
+            }
+        ]
+    }
 ];
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
@@ -82,6 +134,12 @@ export const Portfolio = () => {
                                             <p className="text-gray-400 text-sm lg:text-base">
                                                 {project.description}
                                             </p>
+                                            <div className="mt-4">
+                                                <p className="text-purple-400 mb-2">Project Team:</p>
+                                                <div className="flex flex-row items-center gap-1">
+                                                    <AnimatedTooltip items={project.team} />
+                                                </div>
+                                            </div>
                                         </>
                                     )}
                                 </div>
