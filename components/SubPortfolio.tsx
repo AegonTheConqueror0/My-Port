@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
-import project4 from "@/assets/diabeticare.png"
-import project3 from "@/assets/conversasione.png"
-import steve from "@/assets/steve.jpg"
-import clarence from "@/assets/clarence.jpg"
-import ed from "@/assets/ed.jpg"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
 
+const project4 = "/images/diabeticare.png"
+const project3 = "/images/conversasione.png"
+const steve = "/images/steve.jpg"
+const clarence = "/images/clarence.jpg"
+const ed = "/images/ed.jpg"
 const projects = [
     {
         id: 1,
@@ -22,19 +22,19 @@ const projects = [
                 id: 1,
                 name: "Research Lead",
                 designation: "Project Head",
-                image: steve.src
+                image: steve
             },
             {
                 id: 2,
                 name: "Research Assistant",
                 designation: "Data Analyst",
-                image: clarence.src
+                image: clarence
             },
             {
                 id: 3,
                 name: "Technical Writer",
                 designation: "Documentation",
-                image: ed.src
+                image: ed
             }
         ]
     },
@@ -49,7 +49,7 @@ const projects = [
                 id: 1,
                 name: "Lead Presenter",
                 designation: "Diabeticare Representative",
-                image: ed.src
+                image: ed
             }
         ]
     },
@@ -147,7 +147,7 @@ export const SubPortfolio = () => {
                                         className="mt-4 lg:mt-0 lg:order-2 lg:sticky lg:top-24"
                                     >
                                         <Image
-                                            src={project.image.src}
+                                            src={project.image}
                                             alt={project.title}
                                             className="rounded-xl shadow-lg transition-all duration-500 ease-in-out w-full hover:scale-[1.02]"
                                             width={800}

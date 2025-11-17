@@ -2,12 +2,13 @@
 
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
-import design1 from "@/assets/proj1.png"  // Temporarily use existing images
-import design2 from "@/assets/design1.png"  // until you have your design images
-import design3 from "@/assets/design2.png"
-import ed from "@/assets/ed.jpg"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
+
+const design1 = "/images/proj1.png"  // Temporarily use existing images
+const design2 = "/images/design1.png"  // until you have your design images
+const design3 = "/images/design2.png"
+const ed = "/images/ed.jpg"
 
 const designs = [
     {
@@ -22,7 +23,7 @@ const designs = [
                 id: 1,
                 name: "Edgardo, Jr. B. Rojas",
                 designation: "Graphics Designer",
-                image: ed.src
+                image: ed
             }
         ]
     },
@@ -38,7 +39,7 @@ const designs = [
                 id: 1,
                 name: "Edgardo, Jr. B. Rojas",
                 designation: "Graphics Designer",
-                image: ed.src
+                image: ed
             }
         ]
     },
@@ -54,7 +55,7 @@ const designs = [
                 id: 1,
                 name: "Edgardo, Jr. B. Rojas",
                 designation: "Graphics Designer",
-                image: ed.src
+                image: ed
             }
         ]
     },
@@ -150,7 +151,7 @@ export const Designs = () => {
                                         className="mt-4 lg:mt-0 lg:order-2 lg:sticky lg:top-24"
                                     >
                                         <Image
-                                            src={design.image.src}
+                                            src={design.image}
                                             alt={design.title}
                                             className="rounded-xl shadow-lg transition-all duration-500 ease-in-out w-full hover:scale-[1.02]"
                                             width={800}
