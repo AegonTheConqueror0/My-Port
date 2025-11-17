@@ -1,10 +1,10 @@
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import ssg3 from "@/assets/ssg3.jpg";
-import ssg1 from "@/assets/ssg1.jpg";
-import ssg6 from "@/assets/ssg6.jpg";
-import ssg5 from "@/assets/ssg5.jpg";
-import ssg7 from "@/assets/ssg7.jpg";
-import ssg8 from "@/assets/ssg8.jpg";
+import ssg3 from "/images/ssg3.jpg";
+import ssg1 from "/images/ssg1.jpg";
+import ssg6 from "/images/ssg6.jpg";
+import ssg5 from "/images/ssg5.jpg";
+import ssg7 from "/images/ssg7.jpg";
+import ssg8 from "/images/ssg8.jpg";
 
 export function AnimatedTestimonialsDemo() {
   const testimonials = [

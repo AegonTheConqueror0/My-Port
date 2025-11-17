@@ -2,15 +2,15 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import Photoshop from "../assets/photoshop.png"
-import Lightroom from "../assets/lightroom.png"
-import Premiere from "../assets/premiere.png"
-import vscode from "../assets/vscode.png"
-import hcdc from "../assets/hcdc.png"
-import JIT from "../assets/JIT.png"
-import Jairosoft from "../assets/Jairosoft.png"
-import Figma from "../assets/Figma.png"
-import Bubble from "../assets/Bubble.png"
+import Photoshop from "/images/photoshop.png"
+import Lightroom from "/images/lightroom.png"
+import Premiere from "/images/premiere.png"
+import vscode from "/images/vscode.png"
+import hcdc from "/images/hcdc.png"
+import JIT from "/images/JIT.png"
+import Jairosoft from "/images/Jairosoft.png"
+import Figma from "/images/Figma.png"
+import Bubble from "/images/Bubble.png"
 
 const Images = [
     { src: Photoshop, alt: "ps" },

@@ -2,11 +2,11 @@
 
 import React from "react"
 import Image from "next/image"
-import certificate1 from "@/assets/cert1.jpg"
-import certificate2 from "@/assets/cert2.jpg"
-import certificate3 from "@/assets/cert3.png"
-import certificate4 from "@/assets/cert4.png"
-import certificate5 from "@/assets/cert5.png"
+import certificate1 from "/images/cert1.jpg"
+import certificate2 from "/images/cert2.jpg"
+import certificate3 from "/images/cert3.png"
+import certificate4 from "/images/cert4.png"
+import certificate5 from "/images/cert5.png"
 import { motion, useMotionValue, useMotionTemplate } from "framer-motion"
 
 const certificates = [
