@@ -10,7 +10,7 @@ const project9 = "/images/proj9.png"
 const project1 = "/images/proj1.png"
 const steve = "/images/steve.jpg"
 const clarence = "/images/clarence.jpg"
-const ed = "/images/edgardo.jpg"
+const ed = "/images/edward.jpg"
 
 const projects = [
     {
