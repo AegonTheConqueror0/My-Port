@@ -8,8 +8,8 @@ import {
   motion,
   animate,
 } from "framer-motion";
-import Image from 'next/image';
-import profilepic from "../assets/profilepic.png"
+import Image from "next/image"
+const profilepic = "/images/edprofile.png"
 
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]

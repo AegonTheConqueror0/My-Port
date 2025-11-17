@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Contact } from "@/components/Contact"
 import { Designs } from "../components/Designs"
 import { Loading } from "@/components/Loading"
