@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import edIcon from "@/assets/ed.jpg";
+const edIcon = "/images/ed.jpg";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["100", "200", "400", "700", "900"] });
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         type: 'image/x-icon',
       },
       {
-        url: edIcon.src,
+        url: edIcon,
         type: 'image/jpeg',
       }
     ],
