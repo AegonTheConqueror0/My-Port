@@ -9,7 +9,7 @@ const project4 = "/images/diabeticare.png"
 const project3 = "/images/conversasione.png"
 const steve = "/images/steve.jpg"
 const clarence = "/images/clarence.jpg"
-const ed = "/images/ed.jpg"
+const ed = "/images/edgardo.jpg"
 const projects = [
     {
         id: 1,

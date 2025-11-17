@@ -8,7 +8,7 @@ import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
 const design1 = "/images/proj1.png"  // Temporarily use existing images
 const design2 = "/images/design1.png"  // until you have your design images
 const design3 = "/images/design2.png"
-const ed = "/images/ed.jpg"
+const ed = "/images/edgardo.jpg"
 
 const designs = [
     {
