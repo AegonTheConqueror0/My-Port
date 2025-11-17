@@ -5,7 +5,7 @@ import Image from "next/image"
 import design1 from "@/assets/proj1.png"  // Temporarily use existing images
 import design2 from "@/assets/design1.png"  // until you have your design images
 import design3 from "@/assets/design2.png"
-import ed from "@/assets/edgardo.jpg"
+import ed from "@/assets/ed.jpg"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
 

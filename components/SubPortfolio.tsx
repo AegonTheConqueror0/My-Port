@@ -6,7 +6,7 @@ import project4 from "@/assets/diabeticare.png"
 import project3 from "@/assets/conversasione.png"
 import steve from "@/assets/steve.jpg"
 import clarence from "@/assets/clarence.jpg"
-import ed from "@/assets/edgardo.jpg"
+import ed from "@/assets/ed.jpg"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
 

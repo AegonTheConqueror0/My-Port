@@ -7,7 +7,7 @@ import project9 from "@/assets/proj9.png"
 import project1 from "@/assets/proj1.png"
 import steve from "@/assets/steve.jpg"
 import clarence from "@/assets/clarence.jpg"
-import ed from "@/assets/edgardo.jpg"
+import ed from "@/assets/ed.jpg"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
 
