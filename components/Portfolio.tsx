@@ -86,7 +86,8 @@ const projects = [
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
 
 export const Portfolio = () => {
-    const [selectedProject, setSelectedProject] = useState<number | null>(null)
+    const [selectedProject, setSelectedProject] = useState<number | null>(projects[0]?.id ?? null)
+    const [isPaused, setIsPaused] = useState(false)
     const color = useMotionValue(COLORS_TOP[0])
 
      useEffect(() => {
@@ -106,6 +107,21 @@ export const Portfolio = () => {
         setSelectedProject(selectedProject === id ? null : id)
     }
 
+    useEffect(() => {
+        if (isPaused) return
+
+        const idList = projects.map(p => p.id)
+        const timer = setInterval(() => {
+            setSelectedProject(prev => {
+                const currentIndex = idList.indexOf(prev ?? idList[0])
+                const nextIndex = (currentIndex + 1) % idList.length
+                return idList[nextIndex]
+            })
+        }, 4000)
+
+        return () => clearInterval(timer)
+    }, [isPaused])
+
     return (
         <motion.section
             style={{ backgroundImage }}
@@ -124,7 +140,12 @@ export const Portfolio = () => {
                             >
                                 <div className="lg:order-1">
                                     <p className="text-gray-400 text-base lg:text-lg mb-1">{project.year}</p>
-                                    <h3 className={`text-2xl lg:text-3xl font-semibold group-hover:text-purple-400 transition-colors
+                                    <h3
+                                        onMouseEnter={() => { setIsPaused(true); setSelectedProject(project.id); }}
+                                        onMouseLeave={() => setIsPaused(false)}
+                                        onFocus={() => { setIsPaused(true); setSelectedProject(project.id); }}
+                                        onBlur={() => setIsPaused(false)}
+                                        className={`text-2xl lg:text-3xl font-semibold group-hover:text-purple-400 transition-colors
                                         ${selectedProject === project.id ? 'text-gray-200' : ''} duration-300`}>
                                         {project.title}
                                     </h3>

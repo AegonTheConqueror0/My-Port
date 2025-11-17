@@ -40,77 +40,24 @@ const Images = [
     { src: Jairosoft, alt: "jairo" },
     { src: Figma, alt: "fig" },
     { src: Bubble, alt: "bub" },
-    { src: Photoshop, alt: "ps" },
-    { src: Lightroom, alt: "lr" },
-    { src: Premiere, alt: "pr" },
-    { src: vscode, alt: "vs" },
-    { src: hcdc, alt: "hcdc" },
-    { src: JIT, alt: "jit" },
-    { src: Jairosoft, alt: "jairo" },
-    { src: Figma, alt: "fig" },
-    { src: Bubble, alt: "bub" },
-    { src: Photoshop, alt: "ps" },
-    { src: Lightroom, alt: "lr" },
-    { src: Premiere, alt: "pr" },
-    { src: vscode, alt: "vs" },
-    { src: hcdc, alt: "hcdc" },
-    { src: JIT, alt: "jit" },
-    { src: Jairosoft, alt: "jairo" },
-    { src: Figma, alt: "fig" },
-    { src: Bubble, alt: "bub" },
-    { src: Photoshop, alt: "ps" },
-    { src: Lightroom, alt: "lr" },
-    { src: Premiere, alt: "pr" },
-    { src: vscode, alt: "vs" },
-    { src: hcdc, alt: "hcdc" },
-    { src: JIT, alt: "jit" },
-    { src: Jairosoft, alt: "jairo" },
-    { src: Figma, alt: "fig" },
-    { src: Bubble, alt: "bub" },
-    { src: Photoshop, alt: "ps" },
-    { src: Lightroom, alt: "lr" },
-    { src: Premiere, alt: "pr" },
-    { src: vscode, alt: "vs" },
-    { src: hcdc, alt: "hcdc" },
-    { src: JIT, alt: "jit" },
-    { src: Jairosoft, alt: "jairo" },
-    { src: Figma, alt: "fig" },
-    { src: Bubble, alt: "bub" },
-    { src: Photoshop, alt: "ps" },
-    { src: Lightroom, alt: "lr" },
-    { src: Premiere, alt: "pr" },
-    { src: vscode, alt: "vs" },
-    { src: hcdc, alt: "hcdc" },
-    { src: JIT, alt: "jit" },
-    { src: Jairosoft, alt: "jairo" },
-    { src: Figma, alt: "fig" },
-    { src: Bubble, alt: "bub" },
-    { src: Photoshop, alt: "ps" },
-    { src: Lightroom, alt: "lr" },
-    { src: Premiere, alt: "pr" },
-    { src: vscode, alt: "vs" },
-    { src: hcdc, alt: "hcdc" },
-    { src: JIT, alt: "jit" },
-    { src: Jairosoft, alt: "jairo" },
-    { src: Figma, alt: "fig" },
-    { src: Bubble, alt: "bub" },
 ]
 
 export const LogoAnimation = () => {
     console.log("LogoAnimation component rendered");
 
     return (
-        <div className="py-6 bg-purple-200/10 opacity-80"> {/* Removed the 'glass' class */}
+        <div className="py-8 bg-purple-200/10 glass opacity-80">
             <div className="container mx-auto">
-                <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,_transparent,_black_25%,_black_75%,_transparent)]">
+                <div className="overflow-hidden w-full
+                        [mask-image:linear-gradient(to_right,_transparent,_black_25%,_black_75%,_transparent)]">
                 <motion.div
-                    className="flex gap-10 flex-none pr-10"
+                    className="flex gap-14 flex-none pr-14"
                     style={{ width: '200%' }}
                     animate={{
                         translateX: '-100%',
                     }}
                     transition={{
-                        duration: 80,
+                        duration: 35,
                         repeat: Infinity,
                         ease: "linear",
                         repeatType: "loop",
@@ -122,14 +69,12 @@ export const LogoAnimation = () => {
                         key={index}
                         src={image.src}
                         alt={image.alt}
-                        height={28}
-                        width={28}
-                        style={{ objectFit: "contain" }}
+                        height={30}
                     />
-                    ))}
-        </motion.div>
+                ))}
+            </motion.div>            
                 </div>
             </div>
-        </div>
+        </div>  
     );
 };

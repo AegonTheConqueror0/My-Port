@@ -5,7 +5,9 @@ import Image from "next/image"
 import design1 from "@/assets/proj1.png"  // Temporarily use existing images
 import design2 from "@/assets/design1.png"  // until you have your design images
 import design3 from "@/assets/design2.png"
+import ed from "@/assets/edgardo.jpg"
 import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion"
+import { AnimatedTooltip } from "@/components/ui/animated-tooltip"
 
 const designs = [
     {
@@ -14,6 +16,15 @@ const designs = [
         title: 'UI/UX ELMS Design',
         description: 'Modern and intuitive user interface designs created with Figma, focusing on user experience and accessibility.',
         image: design1
+        ,
+        team: [
+            {
+                id: 1,
+                name: "Edgardo, Jr. B. Rojas",
+                designation: "Graphics Designer",
+                image: ed.src
+            }
+        ]
     },
     {
         id: 2,
@@ -21,6 +32,15 @@ const designs = [
         title: 'Graphics Designs Collection',
         description: 'A collection of creative graphic designs showcasing brand identities, social media content, and marketing materials created using Adobe Creative Suite.',
         image: design2
+        ,
+        team: [
+            {
+                id: 1,
+                name: "Edgardo, Jr. B. Rojas",
+                designation: "Graphics Designer",
+                image: ed.src
+            }
+        ]
     },
     {
         id: 3,
@@ -28,13 +48,23 @@ const designs = [
         title: 'Graphics Designs T-shirt Collection',
         description: 'Custom t-shirt designs featuring unique illustrations, typography, and patterns, designed for both personal and commercial use.',
         image: design3
+        ,
+        team: [
+            {
+                id: 1,
+                name: "Edgardo, Jr. B. Rojas",
+                designation: "Graphics Designer",
+                image: ed.src
+            }
+        ]
     },
 ];
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
 
 export const Designs = () => {
-    const [selectedDesign, setSelectedDesign] = useState<number | null>(null)
+    const [selectedDesign, setSelectedDesign] = useState<number | null>(designs[0]?.id ?? null)
+    const [isPaused, setIsPaused] = useState(false)
     const color = useMotionValue(COLORS_TOP[0])
 
     useEffect(() => {
@@ -54,6 +84,21 @@ export const Designs = () => {
         setSelectedDesign(selectedDesign === id ? null : id)
     }
 
+    useEffect(() => {
+        if (isPaused) return
+
+        const idList = designs.map(d => d.id)
+        const timer = setInterval(() => {
+            setSelectedDesign(prev => {
+                const currentIndex = idList.indexOf(prev ?? idList[0])
+                const nextIndex = (currentIndex + 1) % idList.length
+                return idList[nextIndex]
+            })
+        }, 4000)
+
+        return () => clearInterval(timer)
+    }, [isPaused])
+
     return (
         <motion.section
             style={{ backgroundImage }}
@@ -72,7 +117,12 @@ export const Designs = () => {
                             >
                                 <div className="lg:order-1">
                                     <p className="text-gray-400 text-base lg:text-lg mb-1">{design.year}</p>
-                                    <h3 className={`text-2xl lg:text-3xl font-semibold group-hover:text-purple-400 transition-colors
+                                    <h3
+                                        onMouseEnter={() => { setIsPaused(true); setSelectedDesign(design.id); }}
+                                        onMouseLeave={() => setIsPaused(false)}
+                                        onFocus={() => { setIsPaused(true); setSelectedDesign(design.id); }}
+                                        onBlur={() => setIsPaused(false)}
+                                        className={`text-2xl lg:text-3xl font-semibold group-hover:text-purple-400 transition-colors
                                         ${selectedDesign === design.id ? 'text-gray-200' : ''} duration-300`}>
                                         {design.title}
                                     </h3>
@@ -82,6 +132,12 @@ export const Designs = () => {
                                             <p className="text-gray-400 text-sm lg:text-base">
                                                 {design.description}
                                             </p>
+                                            <div className="mt-4">
+                                                <p className="text-purple-400 mb-2">Project Team:</p>
+                                                <div className="flex flex-row items-center gap-1">
+                                                    <AnimatedTooltip items={design.team} />
+                                                </div>
+                                            </div>
                                         </>
                                     )}
                                 </div>
